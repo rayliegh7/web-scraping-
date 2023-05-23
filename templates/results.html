@@ -1,0 +1,95 @@
+\<!DOCTYPE html>
+<html>
+<head>
+	<title>Product Search Results</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<!-- Custom CSS -->
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			margin: 20px auto;
+		}
+
+		th {
+			background-color: #007bff;
+			color: #fff;
+			font-size: 18px;
+			padding: 10px;
+		}
+
+		td {
+			border: 1px solid #ddd;
+			padding: 8px;
+		}
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		.btn {
+			padding: 10px;
+			background-color: #007bff;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+
+		.btn:hover {
+			background-color: #0069d9;
+		}
+
+		.no-results {
+			margin: 20px auto;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1 class="text-center">Product Search Results</h1>
+		<table cellspacing="0">
+			<tr>
+				<th>product Name</th>
+				<th>Product Link</th>
+				<th>Rating</th>
+				<th>selling price</th>
+				<th>MRP</th>
+				<th>Highlights</th>
+			</tr>
+			{% for result in results %}
+			<tr>
+				<td>{{ result['name'] }}</td>
+				<td><a href="{{ result['productLink'] }}" target="{{ result['productLink'] }}">{{ result['productLink'] }}</a></td>
+
+				<td>{{ result['rating'] }}</td>
+				<td>{{result['selling price']}}</td>
+				<td>{{result['MRP']}}</td>nn
+				<td>{{ result['highlight']}}</td>
+			</tr>
+			{% endfor %}
+		</table>
+		{% if not results %}
+		<div class="no-results">
+			<p>No products found.</p>
+		</div>
+		{% endif %}
+	</div>
+</body>
+</html>

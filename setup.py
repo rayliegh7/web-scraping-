@@ -14,7 +14,7 @@ def get_requirement(file_name:str)->List[str]:
     
 
 setup(
-    name="web scraping with images",
+    name="web scraping",
     author="suryakant ghodke",
     version="0.0.1",
     author_email="suryakantghodake20@gmail.com",
